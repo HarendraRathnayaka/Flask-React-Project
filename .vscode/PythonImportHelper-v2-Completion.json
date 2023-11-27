@@ -1,0 +1,276 @@
+[
+    {
+        "label": "config",
+        "importPath": "decouple",
+        "description": "decouple",
+        "isExtraImport": true,
+        "detail": "decouple",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "SQLAlchemy",
+        "importPath": "flask_sqlalchemy",
+        "description": "flask_sqlalchemy",
+        "isExtraImport": true,
+        "detail": "flask_sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Api",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Resource",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "fields",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "DevConfig",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "Recipe",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "Recipe",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "extensions",
+        "description": "extensions",
+        "isExtraImport": true,
+        "detail": "extensions",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "extensions",
+        "description": "extensions",
+        "isExtraImport": true,
+        "detail": "extensions",
+        "documentation": {}
+    },
+    {
+        "label": "Recipe",
+        "importPath": "backend.models",
+        "description": "backend.models",
+        "isExtraImport": true,
+        "detail": "backend.models",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "kind": 6,
+        "importPath": "backend.config",
+        "description": "backend.config",
+        "peekOfCode": "class Config:\n    SECRET_KEY = config('SECRET_KEY')\n    SQLALCHEMY_TRACK_MODIFICATIONS = config('SQLALCHEMY_TRACK_MODIFICATIONS', cast=bool)\nclass DevConfig(Config):\n    SQLALCHEMY_DATABASE_URI = \"sqlite:///\" + os.path.join(BASE_DIR, \"dev.db\")\n    DEBUG = True\n    SQLALCHEMY_ECHO = True\nclass ProdConfig(Config):\n    pass\nclass TestConfig(Config):",
+        "detail": "backend.config",
+        "documentation": {}
+    },
+    {
+        "label": "DevConfig",
+        "kind": 6,
+        "importPath": "backend.config",
+        "description": "backend.config",
+        "peekOfCode": "class DevConfig(Config):\n    SQLALCHEMY_DATABASE_URI = \"sqlite:///\" + os.path.join(BASE_DIR, \"dev.db\")\n    DEBUG = True\n    SQLALCHEMY_ECHO = True\nclass ProdConfig(Config):\n    pass\nclass TestConfig(Config):\n    pass",
+        "detail": "backend.config",
+        "documentation": {}
+    },
+    {
+        "label": "ProdConfig",
+        "kind": 6,
+        "importPath": "backend.config",
+        "description": "backend.config",
+        "peekOfCode": "class ProdConfig(Config):\n    pass\nclass TestConfig(Config):\n    pass",
+        "detail": "backend.config",
+        "documentation": {}
+    },
+    {
+        "label": "TestConfig",
+        "kind": 6,
+        "importPath": "backend.config",
+        "description": "backend.config",
+        "peekOfCode": "class TestConfig(Config):\n    pass",
+        "detail": "backend.config",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "backend.config",
+        "description": "backend.config",
+        "peekOfCode": "BASE_DIR = os.path.dirname(os.path.realpath(__file__))\nclass Config:\n    SECRET_KEY = config('SECRET_KEY')\n    SQLALCHEMY_TRACK_MODIFICATIONS = config('SQLALCHEMY_TRACK_MODIFICATIONS', cast=bool)\nclass DevConfig(Config):\n    SQLALCHEMY_DATABASE_URI = \"sqlite:///\" + os.path.join(BASE_DIR, \"dev.db\")\n    DEBUG = True\n    SQLALCHEMY_ECHO = True\nclass ProdConfig(Config):\n    pass",
+        "detail": "backend.config",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "kind": 5,
+        "importPath": "backend.extensions",
+        "description": "backend.extensions",
+        "peekOfCode": "db = SQLAlchemy()",
+        "detail": "backend.extensions",
+        "documentation": {}
+    },
+    {
+        "label": "HelloResource",
+        "kind": 6,
+        "importPath": "backend.main",
+        "description": "backend.main",
+        "peekOfCode": "class HelloResource(Resource):\n    def get(self):\n        return {'message': 'Hello World'}\n@api.route('/recipes')\nclass RecipeResource(Resource):\n    @api.marshal_list_with(recipe_model)\n    def get(self):\n        #get all recipes\n        recipes=Recipe.query.all()\n        return recipes",
+        "detail": "backend.main",
+        "documentation": {}
+    },
+    {
+        "label": "RecipeResource",
+        "kind": 6,
+        "importPath": "backend.main",
+        "description": "backend.main",
+        "peekOfCode": "class RecipeResource(Resource):\n    @api.marshal_list_with(recipe_model)\n    def get(self):\n        #get all recipes\n        recipes=Recipe.query.all()\n        return recipes\n    @api.marshal_with(recipe_model)\n    def post(self):\n        #create new recipek\n        data=request.get_json()",
+        "detail": "backend.main",
+        "documentation": {}
+    },
+    {
+        "label": "RecipeResource",
+        "kind": 6,
+        "importPath": "backend.main",
+        "description": "backend.main",
+        "peekOfCode": "class RecipeResource(Resource):\n    @api.marshal_with(recipe_model)\n    def get(self,id):\n        #get a recipe by id\n        recipe=Recipe.query.get_or_404(id)\n        return recipe\n    @api.marshal_with(recipe_model)\n    def put(self,id):\n        #update a recipe by id\n        recipe_to_update=Recipe.query.get_or_404(id)",
+        "detail": "backend.main",
+        "documentation": {}
+    },
+    {
+        "label": "RecipeResource",
+        "kind": 6,
+        "importPath": "backend.main",
+        "description": "backend.main",
+        "peekOfCode": "class RecipeResource(Resource):\n    @api.marshal_list_with(recipe_model)\n    @api.doc(description=\"Get all recipes\")\n    def get(self):\n        # get all recipes\n        recipes = Recipe.query.all()\n        return recipes\n    @api.doc(description=\"Create a new recipe\")\n    def post(self):\n        # create new recipe",
+        "detail": "backend.main",
+        "documentation": {}
+    },
+    {
+        "label": "make_shell_context",
+        "kind": 2,
+        "importPath": "backend.main",
+        "description": "backend.main",
+        "peekOfCode": "def make_shell_context():\n    return {'db': db, 'Recipe': Recipe}\nif __name__ == '__main__':\n    app.run()",
+        "detail": "backend.main",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "backend.main",
+        "description": "backend.main",
+        "peekOfCode": "app = Flask(__name__)\napp.config.from_object(DevConfig)\ndb.init_app(app)\napi = Api(app, doc='/docs')\n\"\"\"\nfrom flask import Blueprint\nfrom backend.models import Recipe\n# Create a Flask-RESTx Blueprint\nblueprint = Blueprint('api', __name__, url_prefix='/api')\n# Initialize the Flask-RESTx Api with the Blueprint",
+        "detail": "backend.main",
+        "documentation": {}
+    },
+    {
+        "label": "api",
+        "kind": 5,
+        "importPath": "backend.main",
+        "description": "backend.main",
+        "peekOfCode": "api = Api(app, doc='/docs')\n\"\"\"\nfrom flask import Blueprint\nfrom backend.models import Recipe\n# Create a Flask-RESTx Blueprint\nblueprint = Blueprint('api', __name__, url_prefix='/api')\n# Initialize the Flask-RESTx Api with the Blueprint\napi = Api(blueprint, doc='/docs')\n# Register the Blueprint with the Flask App\napp.register_blueprint(blueprint)",
+        "detail": "backend.main",
+        "documentation": {}
+    },
+    {
+        "label": "blueprint",
+        "kind": 5,
+        "importPath": "backend.main",
+        "description": "backend.main",
+        "peekOfCode": "blueprint = Blueprint('api', __name__, url_prefix='/api')\n# Initialize the Flask-RESTx Api with the Blueprint\napi = Api(blueprint, doc='/docs')\n# Register the Blueprint with the Flask App\napp.register_blueprint(blueprint)\n\"\"\"\n#model (serializer)\nrecipe_model=api.model('Recipe',{\n    'id': fields.Integer(),\n    'title': fields.String(),",
+        "detail": "backend.main",
+        "documentation": {}
+    },
+    {
+        "label": "api",
+        "kind": 5,
+        "importPath": "backend.main",
+        "description": "backend.main",
+        "peekOfCode": "api = Api(blueprint, doc='/docs')\n# Register the Blueprint with the Flask App\napp.register_blueprint(blueprint)\n\"\"\"\n#model (serializer)\nrecipe_model=api.model('Recipe',{\n    'id': fields.Integer(),\n    'title': fields.String(),\n    'description': fields.String()\n})",
+        "detail": "backend.main",
+        "documentation": {}
+    },
+    {
+        "label": "Recipe",
+        "kind": 6,
+        "importPath": "backend.models",
+        "description": "backend.models",
+        "peekOfCode": "class Recipe:\n    id:int primary key\n    title:str\n    description:str (text)\n\"\"\"\nclass Recipe(db.Model):\n    id = db.Column(db.Integer(), primary_key=True)\n    title = db.Column(db.String(), nullable=False)\n    description = db.Column(db.Text(), nullable=False)\n    def __repr__(self):",
+        "detail": "backend.models",
+        "documentation": {}
+    },
+    {
+        "label": "Recipe",
+        "kind": 6,
+        "importPath": "backend.models",
+        "description": "backend.models",
+        "peekOfCode": "class Recipe(db.Model):\n    id = db.Column(db.Integer(), primary_key=True)\n    title = db.Column(db.String(), nullable=False)\n    description = db.Column(db.Text(), nullable=False)\n    def __repr__(self):\n        return f\"<Recipe {self.title}>\"\n    def save(self):\n        db.session.add(self)\n        db.session.commit()\n    def delete(self):",
+        "detail": "backend.models",
+        "documentation": {}
+    }
+]
